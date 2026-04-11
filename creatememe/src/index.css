@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0a0a0f;
+    color: #e2e8f0;
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0a0a0f; }
+  ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 2px; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-light text-white font-display font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-glow-sm hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply border border-border hover:border-accent text-muted hover:text-white px-5 py-2.5 rounded-lg transition-all duration-200;
+  }
+  .card {
+    @apply bg-card border border-border rounded-xl p-6 shadow-card;
+  }
+  .input-field {
+    @apply w-full bg-surface border border-border rounded-lg px-4 py-3 text-white placeholder-muted text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-200;
+  }
+  .nav-link {
+    @apply flex items-center gap-2 text-muted hover:text-white text-sm transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-surface;
+  }
+  .coin-card {
+    @apply bg-card border border-border rounded-xl p-5 hover:border-accent hover:shadow-glow transition-all duration-300 cursor-pointer;
+  }
+  .wallet-adapter-button {
+    background: #7c3aed !important;
+    border-radius: 8px !important;
+    font-family: "Syne", sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    padding: 10px 20px !important;
+    height: auto !important;
+  }
+  .wallet-adapter-button:hover {
+    background: #a855f7 !important;
+  }
+}
+
+.mesh-bg {
+  background:
+    radial-gradient(ellipse 600px 400px at 10% 20%, #7c3aed11 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 90% 80%, #a855f711 0%, transparent 70%),
+    #0a0a0f;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.5s ease forwards; }
+
+.ticker-wrap { overflow: hidden; white-space: nowrap; }
+.ticker-inner { display: inline-flex; animation: ticker 30s linear infinite; }
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
